@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="inventory.system.View_Controller.ModifyProductController">
+   <children>
+      <SplitPane dividerPositions="0.3" prefHeight="700.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="68.0" layoutY="59.0" text="Modify Product">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutX="18.0" layoutY="118.0" prefHeight="257.0" prefWidth="215.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="121.0" minWidth="10.0" prefWidth="66.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="186.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="ID" />
+                        <Label text="Name" GridPane.rowIndex="1" />
+                        <Label text="Inv" GridPane.rowIndex="2" />
+                        <Label text="Price" GridPane.rowIndex="3" />
+                        <Label text="Max" GridPane.rowIndex="4" />
+                        <Label text="Min" GridPane.rowIndex="5" />
+                        <TextField fx:id="modifyProductIDField" disable="true" editable="false" opacity="0.52" prefHeight="9.0" prefWidth="0.0" GridPane.columnIndex="1" />
+                        <TextField fx:id="modifyProductNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="modifyProductInvField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="modifyProductPriceField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="modifyProductMaxField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="modifyProductMinField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="700.0" prefWidth="698.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="351.0" prefWidth="621.0">
+                           <children>
+                              <TableView fx:id="modifyProductSearchPartsTable" layoutX="27.0" layoutY="73.0" prefHeight="200.0" prefWidth="490.0">
+                                <columns>
+                                  <TableColumn fx:id="modifyProductSearchPartsTablePartIDColumn" prefWidth="75.0" text="Part ID" />
+                                  <TableColumn fx:id="modifyProductSearchPartsTablePartNameColumn" prefWidth="127.0" text="Part Name" />
+                                    <TableColumn fx:id="modifyProductSearchPartsTablePartInvColumn" prefWidth="143.0" text="Inventory Level" />
+                                    <TableColumn fx:id="modifyProductSearchPartsTablePartPriceColumn" prefWidth="138.0" text="Price per Unit" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="modifyProductSearchButton" layoutX="104.0" layoutY="25.0" mnemonicParsing="false" onAction="#modifyProductSearchParts" text="Search" />
+                              <TextField fx:id="modifyProductSearchText" layoutX="173.0" layoutY="25.0" prefHeight="25.0" prefWidth="252.0" />
+                              <Button fx:id="modifyProductAddPartButton" layoutX="425.0" layoutY="285.0" mnemonicParsing="false" onAction="#modifyProductAddPartToProduct" prefHeight="27.0" prefWidth="75.0" text="Add" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="313.0" prefWidth="616.0">
+                           <children>
+                              <TableView fx:id="modifyProductAssociatedPartsTable" layoutX="31.0" layoutY="57.0" prefHeight="200.0" prefWidth="490.0">
+                                 <columns>
+                                    <TableColumn fx:id="modifyProductAssociatedPartsTableIDColumn" prefWidth="75.0" text="Part ID" />
+                                    <TableColumn fx:id="modifyProductAssociatedPartsTableNameColumn" prefWidth="127.0" text="Part Name" />
+                                    <TableColumn fx:id="modifyProductAssociatedPartsTableInvColumn" prefWidth="143.0" text="Inventory Level" />
+                                    <TableColumn fx:id="modifyProductAssociatedPartsTablePriceColumn" prefWidth="138.0" text="Price per Unit" />
+                                 </columns>
+                              </TableView>
+                              <ButtonBar layoutX="290.0" layoutY="298.0" prefHeight="40.0" prefWidth="200.0">
+                                <buttons>
+                                  <Button fx:id="modifyProductSavePartButton" mnemonicParsing="false" onAction="#modifyProduct" text="Save" />
+                                    <Button fx:id="modifyProductCancelButton" mnemonicParsing="false" onAction="#closeModifyProductScreen" text="Cancel" />
+                                </buttons>
+                              </ButtonBar>
+                              <ButtonBar layoutX="290.0" layoutY="260.0" prefHeight="40.0" prefWidth="200.0">
+                                <buttons>
+                                  <Button fx:id="modifyProductDeletePartButton" mnemonicParsing="false" onAction="#modifyProductDeletePart" text="Delete" />
+                                </buttons>
+                              </ButtonBar>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
